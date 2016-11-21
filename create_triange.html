@@ -1,0 +1,75 @@
+<html>
+	<head>
+	</head>
+	<body  ondrop="drop(event)" ondragover="allowDrop(event)" id="canvas"  >
+	     <center><h1> Thank You for Showing results for opportunity ... </h1></center>
+		 <button id="clr">Clear </button>
+		<script>
+         var pos_height,pos_width;
+         var x ;
+  	     var y ;
+         document.body.style.width=window.innerWidth-20;
+         document.body.style.height=window.innerHeight-20;
+		   document.addEventListener("mouseup", function( event ) {
+		      pos_height = event.clientY-pos_height;
+		      pos_width = event.clientY-y;
+		     draw(event);
+		  }, false);
+            document.addEventListener("mousedown", function( event ) {
+		       pos_height = event.clientY;
+		       x = event.clientX;
+		       y = event.clientY; 
+		  }, false);
+			function draw(event) {    
+			  	var can = document.createElement("canvas");
+			   can.setAttribute("draggable", "true");
+			   can.setAttribute("id", "raman"+Math.floor(Math.random()*1009083));
+			   can.style.position="absolute";
+			   can.style.top=y+10;
+			   can.style.left=x-100;
+			   can.style.height=pos_height+10;
+			   can.style.width=200;
+			   var ctx = can.getContext('2d');
+			    ctx.beginPath();
+			    ctx.moveTo(150,10);
+			    ctx.lineTo(0,pos_height);
+			    ctx.lineTo(300,pos_height);
+			    ctx.fillStyle = "#"+Math.floor(Math.random()*1009083);
+			    ctx.fill();
+			   	if(pos_height)
+			    	document.body.appendChild(can);		    
+			}
+
+		    	canvas.addEventListener('dragstart', function(ev) {
+		             ev.dataTransfer.setData("text", ev.target.id);      
+		    		 }, false);    
+		        function allowDrop(ev) {
+					    ev.preventDefault();
+					}
+				function drop(ev) {
+				    ev.preventDefault();
+				    var data = ev.dataTransfer.getData("text");
+				     var last =   document.getElementById(data).style.left =ev.clientX-100;
+				    document.getElementById(data).style.top=ev.clientY-100;
+				    ev.target.appendChild(last.style.top=ev.clientX-100);
+				     document.getElementById(data).style.left ="100";
+				}
+			    canvas.addEventListener("dblclick",function(ev){
+			    	if(ev.target.id!="clr")
+			    	document.getElementById(ev.target.id).remove();
+
+			    });
+			     document.getElementById('clr').addEventListener("click",function(){
+			    	    var div1Paras = document.getElementsByTagName("canvas");
+     					var num = div1Paras.length;
+     					var i=0;
+     					while(i<=num){
+     						    document.getElementById('clr').nextElementSibling.remove(); 
+     							i++;
+
+     					 }
+			    });
+			     	
+		</script>	
+	</body>
+</html>
