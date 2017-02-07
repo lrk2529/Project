@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#g1st,#g2nd,#g3rd,#g4th,#g5th,#g6th,#g7th,#g8th,#g9th{
+			 width:33%;
+			 float:left;
+			 height:100%; 
+			 text-align: center;
+			 vertical-align: middle;
+			 line-height: 100%;
+			 font-size: 1200%;
+		}
+		/*#g1st,#g5th,#g7th{
+			background-color: red;
+		}
+	    #g2nd,#g6th,#g8th{
+			background-color: black;
+		}
+	    #g3rd,#g4th,#g9th{
+			background-color: yellow;
+		}*/
+
+		#one,#second,#third{
+			height:30%
+		}
+		#g2nd,#g5th,#g8th{
+			border-left:1px solid green;
+			border-right:1px solid green;
+		}
+		#g4th,#g5th,#g6th{
+			border-top:1px solid green;
+			border-bottom:1px solid green;
+		}
+	</style>
+</head>
+<body>
+	 <h1 style="text-align: center;"> Tic Tac Toe with Two players </h1>
+   
+   <div style="height:600px;width:80%;margin:auto;margin-top:3%;">
+	 <div id="one">
+	 	<div id="g1st" class="cell">
+	 		  
+	 	</div>
+	 	<div id="g2nd" class="cell">
+
+	 	</div>
+	 	<div id="g3rd" class="cell">
+	 	</div>
+	 </div>	
+	 <div id="second">
+	 	<div id="g4th" class="cell">
+	 	</div>
+	 	<div id="g5th" class="cell">
+	 	</div>
+	 	<div id="g6th" class="cell">
+	 	</div>
+	 </div>	
+	  <div id="third">
+	  	<div id="g7th" class="cell">
+	 	</div>
+	 	<div id="g8th" class="cell">
+	 	</div>
+	 	<div id="g9th" class="cell">
+	 	</div>
+	 </div>
+	</div>	
+    <script>
+       var incre = 0;
+       function incrementfun(){
+       			
+       			if(this.innerHTML <= 5){
+      			incre++;
+
+      			if(incre&1)
+      		       this.innerHTML=" <span class='cross'>&times;</span>";
+      		    else
+      		       this.innerHTML=" <span class='zero'>&#9862;</span>";
+      	      }else{
+      	      	alert("invalid move");
+      	      }
+           var f1= classname[0].innerHTML.indexOf("cross");
+           var f2= classname[1].innerHTML.indexOf("cross");
+           var f3= classname[2].innerHTML.indexOf("cross");
+           var f4= classname[3].innerHTML.indexOf("cross");
+           var f5= classname[4].innerHTML.indexOf("cross");
+           var f6= classname[5].innerHTML.indexOf("cross");
+      	   var f7= classname[6].innerHTML.indexOf("cross");
+           var f8= classname[7].innerHTML.indexOf("cross");
+           var f9= classname[8].innerHTML.indexOf("cross"); 
+
+           var f01= classname[0].innerHTML.indexOf("zero");
+           var f02= classname[1].innerHTML.indexOf("zero");
+           var f03= classname[2].innerHTML.indexOf("zero");
+           var f04= classname[3].innerHTML.indexOf("zero");
+           var f05= classname[4].innerHTML.indexOf("zero");
+           var f06= classname[5].innerHTML.indexOf("zero");
+      	   var f07= classname[6].innerHTML.indexOf("zero");
+           var f08= classname[7].innerHTML.indexOf("zero");
+           var f09= classname[8].innerHTML.indexOf("zero"); 
+
+           if((f1!=-1 && f5!=-1 && f9!=-1) || (f1 != -1 && f2 != -1 && f3!=-1) || (f2 != -1 && f5 != -1 && f8!=-1) || (f1 != -1 && f4 != -1 && f7!=-1) || (f3 != -1 && f5 != -1 && f7!=-1) || (f3 != -1 && f6 != -1 && f9!=-1)  || (f4 != -1 && f5 != -1 && f6!=-1) || (f7 != -1 && f8 != -1 && f9!=-1)  ) {
+           	   alert("congrats you win!");
+           	    for(var i=0;i<classname.length;i++)
+       		       classname[i].innerHTML="";
+       		   incre=0;
+    
+           }else if((f01!=-1 && f05!=-1 && f09!=-1) || (f01 != -1 && f02 != -1 && f03!=-1) || (f02 != -1 && f05 != -1 && f08!=-1) || (f01 != -1 && f04 != -1 && f07!=-1) || (f03 != -1 && f05 != -1 && f07!=-1) || (f03 != -1 && f06 != -1 && f09!=-1)  || (f04 != -1 && f05 != -1 && f06!=-1) || (f07 != -1 && f08 != -1 && f09!=-1) ){
+           	  alert("congrats you win!");
+           	    for(var i=0;i<classname.length;i++)
+       		       classname[i].innerHTML="";
+       		   incre=0;
+           }else if(incre == 9){
+           	 alert("Draw the game");
+           	    for(var i=0;i<classname.length;i++)
+       		       classname[i].innerHTML="";
+       		   incre=0;
+           }
+
+      
+       }
+       var classname= document.getElementsByClassName("cell");
+      
+       for(var i=0;i<classname.length;i++)
+       		classname[i].addEventListener("click",incrementfun);
+    
+     
+    </script>
+
+</body>
+</html>
